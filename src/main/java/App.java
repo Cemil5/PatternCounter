@@ -25,36 +25,16 @@ public class App {
         System.out.println("Pattern = " + args[1]);
 
         Reader reader = new MainReader();
-        List<String> read = reader.read(args[0]);
+        List<String> document = reader.read(args[0]);
 
-        if (read.get(0).split("\\s+").length < 3){
-            throw new IllegalArgumentException("Document should contain at least 3 words");
-        }
-        FindPatternStrategy f;
-        try {
-            Class<FindPatternStrategy> findPatternStrategy = (Class<FindPatternStrategy>) Class.forName("patterns." + args[1]);
-            f = findPatternStrategy.getDeclaredConstructor().newInstance();
-        } catch (Exception e){
-            throw new IllegalArgumentException("Please, write a valid pattern name");
-            //        Reflections reflections = new Reflections("com.my.project");
-//
-//        Set<Class<?>> subTypes =
-//                reflections.get(SubTypes.of(SomeType.class).asClass());
+        FindPatternStrategy findPattern = FindPatternStrategy.getPattern(args[1]);
 
-//        Reflections reflections = new Reflections("main.patterns");
-//
-//        Set<Class<? extends Object>> allClasses = reflections.getSubTypesOf(Object.class);
-//        System.out.println(allClasses);
-        }
+        Counter counter = new Counter(findPattern);
+        counter.validateDocument(document);
 
-
-        Counter counter = new Counter(read, f);
-
-        String result = counter.count(read);
+        String result = counter.count(document);
 
         System.out.println("result :\n" + result);
-
-
     }
 
 //    public Set<Class> findAllClassesUsingGoogleGuice(String packageName) throws IOException {
