@@ -21,7 +21,7 @@ public class Counter {
     }
 
     public void validateDocument(List<String> document){
-        if (document.toString().trim().replaceAll("\\[|\\]","").split("\\s+").length < 3){
+        if (document.toString().replaceAll("\\[|]","").trim().split("\\s+").length < 3){
             throw new IllegalArgumentException("Document should contain at least 3 words");
         }
     }
