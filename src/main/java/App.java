@@ -13,13 +13,14 @@ I assumed that :
  - input text can only contain integer as numbers.
  - application informs the user about the process.
  - if there is an unexpected input, application should provide user-friendly messages on the console.
+ - build tool usage is not restricted.
  */
 public class App {
     public static void main(String[] args) {
 
         if (args.length != 2) {
-            throw new IllegalArgumentException("Usage: java  <filename>, <PatternName> >> \n" +
-                    "Usage: java -cp . App.java input.txt UniqueNumber");
+            throw new IllegalArgumentException("Usage: java -jar PatternCounter-1.0.jar <filename>, <PatternName> >> \n" +
+                    "Example  : java -jar PatternCounter-1.0.jar input.txt UniqueNumber");
         }
 
         System.out.println("Application started reading arguments");
