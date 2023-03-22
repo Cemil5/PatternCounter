@@ -17,7 +17,7 @@ public class MainReader implements Reader {
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
             stringList = lines.collect(Collectors.toList());
         } catch (IOException e) {
-            throw new RuntimeException("Check if file path is exist", e);
+            throw new RuntimeException("Check if the file path is valid", e);
         }
 
         System.out.println("File Content is : " + stringList);

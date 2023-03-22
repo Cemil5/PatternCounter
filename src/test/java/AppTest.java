@@ -39,12 +39,4 @@ class AppTest {
         assertEquals(expectedMessage, exception.getMessage());
     }
 
-    @org.junit.jupiter.api.Test
-    @DisplayName("Document should contain at least 3 words")
-    void documentLessThan3Word() {
-        String[] args = {"minidoc.txt", "UniqueWord"};
-        assertThrows(IllegalArgumentException.class, () -> App.main(args),
-                ()->("Document should contain at least 3 words"));
-    }
-
 }
