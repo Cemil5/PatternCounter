@@ -1,10 +1,15 @@
 
+import org.reflections.Reflections;
 import patterns.Counter;
 import patterns.FindPatternStrategy;
 import reader.MainReader;
 import reader.Reader;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import static org.reflections.scanners.Scanners.SubTypes;
 
 /*
 I assumed that :
@@ -37,13 +42,4 @@ public class App {
         System.out.println("result :\n" + result);
     }
 
-//    public Set<Class> findAllClassesUsingGoogleGuice(String packageName) throws IOException {
-//        return ClassPath.from(ClassLoader.getSystemClassLoader())
-//                .getAllClasses()
-//                .stream()
-//                .filter(clazz -> clazz.getPackageName()
-//                        .equalsIgnoreCase(packageName))
-//                .map(clazz -> clazz.load())
-//                .collect(Collectors.toSet());
-//    }
 }
