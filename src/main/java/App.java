@@ -41,9 +41,7 @@ public class App {
             System.err.println(e.getMessage());
             return;
         }
-
         String result = counter.count(document);
-
         System.out.println("result :\n" + result);
     }
 

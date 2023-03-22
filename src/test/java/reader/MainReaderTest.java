@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MainReaderTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     @DisplayName("Should throw an exception with invalid file path")
     void readTest() {
         String path = "invalid.txt";

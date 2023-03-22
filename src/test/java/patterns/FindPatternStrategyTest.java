@@ -3,6 +3,7 @@ package patterns;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,14 +11,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class FindPatternStrategyTest {
 
     @Test
+    @DisplayName("Should display result with valid format")
     void formatResult() {
-        Map<String, Integer> input = Map.of("key1", 5, "key2", 10);
-        String expected = "key2, 10\nkey1, 5\n";
+        Map<String, Integer> input = new LinkedHashMap<>();
+        input.put("key1", 5);
+        input.put("key2", 10);
+        String expected = "key1, 5\n" +
+                          "key2, 10\n";
 
         assertEquals(expected, new UniqueWord().formatResult(input));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     @DisplayName("Should throw an exception with invalid pattern name")
     void getPatternTest() {
         String pattern = "UniqueSentence";
