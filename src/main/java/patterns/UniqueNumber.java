@@ -7,7 +7,7 @@ import java.util.Map;
 public class UniqueNumber implements FindPatternStrategy {
 
     @Override
-    public String findPattern(List<String> input) {
+    public Map<Integer, Integer> findPattern(List<String> input) {
 
 //        System.out.println(this.getClass().getName());
 
@@ -22,6 +22,6 @@ public class UniqueNumber implements FindPatternStrategy {
             }
         });
 
-        return formatResult(numberCount);
+        return numberCount;
     }
 }

@@ -1,4 +1,8 @@
 
+import output.Formatter;
+import output.Output;
+import output.Print;
+import output.SeparatorWithComma;
 import patterns.Counter;
 import patterns.FindPatternStrategy;
 import reader.MainReader;
@@ -41,8 +45,9 @@ public class App {
             System.err.println(e.getMessage());
             return;
         }
-        String result = counter.count(document);
-        System.out.println("result :\n" + result);
+        Formatter formatter = new SeparatorWithComma();
+        Output output = new Print();
+        output.send(counter.count(document), formatter);
     }
 
 }

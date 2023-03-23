@@ -7,9 +7,9 @@ import java.util.Map;
 public class UniquePhrase implements FindPatternStrategy {
 
     @Override
-    public String findPattern(List<String> input) {
+    public Map<String, Integer> findPattern(List<String> input) {
 
-        System.out.println(this.getClass().getName());
+//        System.out.println(this.getClass().getName());
         Map<String, Integer> phraseCount = new LinkedHashMap<>(); // map to store phrase count
 
         for (String line : input) {
@@ -20,6 +20,6 @@ public class UniquePhrase implements FindPatternStrategy {
                 phraseCount.put(phrase, count + 1); // increment count and put in map
             }
         }
-        return formatResult(phraseCount);
+        return phraseCount;
     }
 }

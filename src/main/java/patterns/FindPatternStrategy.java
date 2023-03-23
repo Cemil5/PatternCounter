@@ -12,15 +12,7 @@ import static org.reflections.scanners.Scanners.SubTypes;
 @FunctionalInterface
 public interface FindPatternStrategy {
 
-    String findPattern(List<String> input);
-
-    default String formatResult(Map<?, Integer> map) {
-        StringBuilder builder = new StringBuilder();
-        for (Map.Entry<?, Integer> each : map.entrySet()) {
-            builder.append(each.getKey()).append(", ").append(each.getValue()).append("\n");
-        }
-        return builder.toString();
-    }
+    Map<?, Integer> findPattern(List<String> input);
 
     static FindPatternStrategy getPattern(String pattern) {
         FindPatternStrategy findPattern;
@@ -30,10 +22,9 @@ public interface FindPatternStrategy {
         } catch (Exception e) {
             Reflections reflections = new Reflections("patterns");
             Set<Class<?>> subTypes = reflections.get(SubTypes.of(FindPatternStrategy.class).asClass());
-            String message = "Please, write one of the valid pattern name as a second command line argument: ";
+            String message = "Please, write one of the valid pattern name as a second command line argument: \n";
             String validPatterns = subTypes.stream().map(Class::getSimpleName).collect(Collectors.joining(", "));
             throw new IllegalArgumentException(message + validPatterns);
-
         }
         return findPattern;
     }

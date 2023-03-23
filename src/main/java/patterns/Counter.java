@@ -2,6 +2,7 @@ package patterns;
 
 
 import java.util.List;
+import java.util.Map;
 
 public class Counter {
 
@@ -16,7 +17,7 @@ public class Counter {
      * @param document
      * @return
      */
-    public String count(List<String> document){
+    public Map<?, Integer> count(List<String> document){
         return findPatternStrategy.findPattern(document);
     }
 

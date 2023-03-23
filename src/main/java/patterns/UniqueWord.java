@@ -8,9 +8,9 @@ import java.util.Map;
 public class UniqueWord implements FindPatternStrategy {
 
     @Override
-    public String findPattern(List<String> input) {
+    public Map<String, Integer> findPattern(List<String> input) {
 
-        System.out.println(this.getClass().getName());
+//        System.out.println(this.getClass().getName());
 
         String[] words = String.join(" ", input)
                 .replaceAll("\\d+", "").trim().split("\\s+");
@@ -19,6 +19,6 @@ public class UniqueWord implements FindPatternStrategy {
         for (String word : words) {
             wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
         }
-        return formatResult(wordCount);
+        return wordCount;
     }
 }
